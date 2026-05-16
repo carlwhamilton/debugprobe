@@ -23,39 +23,22 @@
  *
  */
 
-#ifndef BOARD_CONFIG_H_
-#define BOARD_CONFIG_H_
+#ifndef BOARD_PIMORONI_TINY2350_CONFIG_H_
+#define BOARD_PIMORONI_TINY2350_CONFIG_H_
 
-#include "pico/stdlib.h"
-#if defined(RASPBERRYPI_DEBUG_PROBE)
-#include "board_debug_probe_config.h"
-#elif defined(RASPBERRYPI_PICO) || defined(RASPBERRYPI_PICO2)
-#include "board_pico_config.h"
-#elif defined(PIMORONI_TINY2350)
-#include "board_pimoroni_tiny2350.h"
-#else
-#error Unsupported board
-//#include "board_example_config.h"
-#endif
+#define PROBE_IO_RAW
+#define PROBE_CDC_UART
 
-#ifndef PROBE_UART_INTERFACE
-#define PROBE_UART_INTERFACE uart_default
-#endif
+// PIO config
+#define PROBE_SM 0
+#define PROBE_PIN_OFFSET 2
+#define PROBE_PIN_SWCLK (PROBE_PIN_OFFSET + 0) // 2
+#define PROBE_PIN_SWDIO (PROBE_PIN_OFFSET + 1) // 3
 
-#ifndef PROBE_UART_TX
-#define PROBE_UART_TX PICO_DEFAULT_UART_TX_PIN
-#endif
+// WHen the DAP is connected, the Tiny's RGB LED will turn whatever
+// color green and red makes.
+#define PROBE_DAP_CONNECTED_LED TINY2350_LED_R_PIN
 
-#ifndef PROBE_UART_RX
-#define PROBE_UART_RX PICO_DEFAULT_UART_RX_PIN
-#endif
-
-#ifndef PROBE_UART_BAUDRATE
-#define PROBE_UART_BAUDRATE PICO_DEFAULT_UART_BAUD_RATE
-#endif
-
-#ifndef PROBE_USB_CONNECTED_LED
-#define PROBE_USB_CONNECTED_LED PICO_DEFAULT_LED_PIN
-#endif
+#define PROBE_PRODUCT_STRING "Debugprobe on Pimoroni Tiny2350 (CMSIS-DAP)"
 
 #endif
