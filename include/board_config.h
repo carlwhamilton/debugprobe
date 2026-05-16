@@ -38,23 +38,23 @@
 //#include "board_example_config.h"
 #endif
 
-#ifndef PROBE_UART_INTERFACE
+#if !defined(PROBE_UART_INTERFACE) && defined(uart_default)
 #define PROBE_UART_INTERFACE uart_default
 #endif
 
-#ifndef PROBE_UART_TX
+#if !defined(PROBE_UART_TX) && defined(PICO_DEFAULT_UART_TX_PIN)
 #define PROBE_UART_TX PICO_DEFAULT_UART_TX_PIN
 #endif
 
-#ifndef PROBE_UART_RX
+#if !defined(PROBE_UART_RX) && defined(PICO_DEFAULT_UART_RX_PIN)
 #define PROBE_UART_RX PICO_DEFAULT_UART_RX_PIN
 #endif
 
-#ifndef PROBE_UART_BAUDRATE
+#if !defined(PROBE_UART_BAUDRATE) && defined(PICO_DEFAULT_UART_BAUD_RATE)
 #define PROBE_UART_BAUDRATE PICO_DEFAULT_UART_BAUD_RATE
 #endif
 
-#ifndef PROBE_USB_CONNECTED_LED
+#if !defined(PROBE_USB_CONNECTED_LED) && defined(PICO_DEFAULT_LED_PIN)
 #define PROBE_USB_CONNECTED_LED PICO_DEFAULT_LED_PIN
 #endif
 
