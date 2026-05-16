@@ -41,9 +41,6 @@
 #define PROBE_UART_TX 4
 #define PROBE_UART_RX 5
 #define PROBE_UART_INTERFACE uart1
-#define PROBE_UART_BAUDRATE 115200
-
-#define PROBE_USB_CONNECTED_LED 25
 
 #define PROBE_PRODUCT_STRING "Debugprobe on Pico (CMSIS-DAP)"
 
